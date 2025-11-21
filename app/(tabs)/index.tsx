@@ -6,7 +6,7 @@ export default function HomeScreen() {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View className="flex-1 w-full justify-center bg-white">
       {isCameraOpen ? (
         <Camera onClose={() => setIsCameraOpen(false)} />
       ) : (
