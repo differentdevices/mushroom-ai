@@ -1,14 +1,20 @@
 import { useRouter } from 'expo-router';
-import { Button, StyleSheet, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 export default function HomeScreen() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 w-full justify-center bg-white">
-      <Button title="Open Camera" onPress={() => router.push('/camera')} />
+    <View className="flex-1 items-center justify-center">
+      <TouchableOpacity
+        className="bg-blue-600 p-4 rounded-xl"
+        onPress={() => router.push("/camera")}
+      >
+        <Text className="text-white text-lg">Open Camera</Text>
+      </TouchableOpacity>
     </View>
   );
+}
 
   // return (
   //   <ParallaxScrollView
@@ -86,23 +92,23 @@ export default function HomeScreen() {
   //     </ThemedView>
   //   </ParallaxScrollView>
   // );
-}
+// }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+// const styles = StyleSheet.create({
+//   titleContainer: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     gap: 8,
+//   },
+//   stepContainer: {
+//     gap: 8,
+//     marginBottom: 8,
+//   },
+//   reactLogo: {
+//     height: 178,
+//     width: 290,
+//     bottom: 0,
+//     left: 0,
+//     position: 'absolute',
+//   },
+// });
