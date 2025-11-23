@@ -1,17 +1,12 @@
-import Camera from '@/components/camera';
-import { useState } from 'react';
+import { useRouter } from 'expo-router';
 import { Button, StyleSheet, View } from 'react-native';
 
 export default function HomeScreen() {
-  const [isCameraOpen, setIsCameraOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <View className="flex-1 w-full justify-center bg-white">
-      {isCameraOpen ? (
-        <Camera onClose={() => setIsCameraOpen(false)} />
-      ) : (
-        <Button title="Open Camera" onPress={() => setIsCameraOpen(true)} />
-      )}
+      <Button title="Open Camera" onPress={() => router.push('/camera')} />
     </View>
   );
 

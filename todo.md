@@ -11,7 +11,13 @@ Energy (1-10): 6
 Reward / Reflection: Tired, exhausted, but did it
 
 **Date: 2025-11-21**
-Task Done: Implemented take picture and added nativewind
+Task Done: Implement take a picture and add nativewind
 Next Step: Rearrange screens: main, camera, result
 Energy (1-10): 7
 Reward / Reflection: Implemented task fast, so added nativewind (was hard)
+
+**Date: 2025-11-23**
+Task Done: Rearrange screens: main, camera, result
+Next Step: Review RN documentation, prick and implement proper navigator
+Energy (1-10): 7
+Reward / Reflection: Skipped one day, but got back on track
