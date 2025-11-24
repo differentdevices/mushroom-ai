@@ -26,7 +26,7 @@ Reward / Reflection: Skipped one day, but got back on track
 Task Done: 
 - Review React Native documentation (navigation)
 - Implement navigation based on Expo Router
-
-Next Step: 
+- Add button to pick image from gallery
+Next Step: Add OpenAI API integration (install lib, add env variable)
 Energy (1-10): 9
 Reward / Reflection: Understood diff between React Navigation and Expo Router

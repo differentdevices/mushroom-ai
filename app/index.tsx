@@ -1,8 +1,26 @@
+import * as ImagePicker from 'expo-image-picker';
 import { useRouter } from 'expo-router';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 export default function HomeScreen() {
   const router = useRouter();
+
+  const pickImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      console.log("Picked:", result.assets[0].uri);
+      router.push({
+        pathname: '/result',
+        params: {
+          photoUri: encodeURIComponent(result.assets[0].uri),
+        }
+      });
+    }
+  };
 
   return (
     <View className="flex-1 items-center justify-center">
@@ -11,6 +29,13 @@ export default function HomeScreen() {
         onPress={() => router.push('/camera')}
       >
         <Text className="text-white text-lg">Open Camera</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        className="bg-blue-600 p-4 rounded-xl"
+        onPress={pickImage}
+      >
+        <Text className="text-white text-lg">Pick from gallery</Text>
       </TouchableOpacity>
     </View>
   );
