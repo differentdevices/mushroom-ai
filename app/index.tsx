@@ -1,6 +1,6 @@
 import * as ImagePicker from 'expo-image-picker';
 import { useRouter } from 'expo-router';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -24,19 +24,19 @@ export default function HomeScreen() {
 
   return (
     <View className="flex-1 items-center justify-center">
-      <TouchableOpacity
+      <Pressable
         className="bg-blue-600 p-4 rounded-xl"
         onPress={() => router.push('/camera')}
       >
         <Text className="text-white text-lg">Open Camera</Text>
-      </TouchableOpacity>
+      </Pressable>
 
-      <TouchableOpacity
+      <Pressable
         className="bg-blue-600 p-4 rounded-xl"
         onPress={pickImage}
       >
         <Text className="text-white text-lg">Pick from gallery</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 }

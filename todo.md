@@ -27,6 +27,7 @@ Task Done:
 - Review React Native documentation (navigation)
 - Implement navigation based on Expo Router
 - Add button to pick image from gallery
+- Replace deprecated TouchableOpacity with Pressable
 Next Step: Add OpenAI API integration (install lib, add env variable)
 Energy (1-10): 9
 Reward / Reflection: Understood diff between React Navigation and Expo Router

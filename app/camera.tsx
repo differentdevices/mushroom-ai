@@ -1,7 +1,7 @@
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useRouter } from 'expo-router';
 import { useRef } from 'react';
-import { Button, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Pressable, Text, View } from 'react-native';
 
 export default function CameraScreen() {
   const router = useRouter();
@@ -13,9 +13,9 @@ export default function CameraScreen() {
   if (!permission?.granted) {
     return (
       <View className="flex-1 items-center justify-center">
-        <TouchableOpacity onPress={requestPermission}>
+        <Pressable onPress={requestPermission}>
           <Text>Request Camera Permission</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     );
   }
@@ -42,12 +42,12 @@ export default function CameraScreen() {
   return (
     <View className="flex-1">
       <CameraView ref={cameraRef} style={{ flex: 1 }} facing="back" />
-      <TouchableOpacity
+      <Pressable
         onPress={takePicture}
         className="absolute bottom-10 self-center bg-white p-4 rounded-full"
       >
         <Text>Snap</Text>
-      </TouchableOpacity>
+      </Pressable>
       <Button title="Close Camera" onPress={() => router.push('/')} />
     </View>
   );
