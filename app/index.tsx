@@ -22,6 +22,23 @@ export default function HomeScreen() {
     }
   };
 
+  const callOpenAI = async () => {
+    try {
+      const response = await fetch('/(api)/(openai)/classify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+      });
+
+      const data = await response.json();
+      console.log('OpenAI Response:', data);
+    } catch (error) {
+      console.error('Error calling OpenAI API:', error);
+    }
+  };
+
   return (
     <View className="flex-1 items-center justify-center">
       <Pressable
@@ -36,6 +53,13 @@ export default function HomeScreen() {
         onPress={pickImage}
       >
         <Text className="text-white text-lg">Pick from gallery</Text>
+      </Pressable>
+
+      <Pressable
+        className="bg-blue-600 p-4 rounded-xl"
+        onPress={callOpenAI}
+      >
+        <Text className="text-white text-lg">Call OpenAI</Text>
       </Pressable>
     </View>
   );

@@ -32,12 +32,28 @@ Next Step: Add OpenAI API integration (install lib, add env variable)
 Energy (1-10): 9
 Reward / Reflection: Understood diff between React Navigation and Expo Router
 
+**Date: 2025-11-25**
+Task Done: Add OpenAI API integration (install lib, add env variable)
+Next Step: Add zod, switch to structured responses (see brainderot openai.ts)
+Energy (1-10): 8
+Reward / Reflection: Understood Expo API routes, connected to OpenAI
+
 # Backlog
 
 ## 1. Core MVP (Ship This First)
 - [x] Take picture  
 - [ ] Send image to model (OpenAI API)
+    + install openai
+    + connect and send text
+    + display response text
+    - add zod
+    - switch to structured responses (see brainderot openai.ts)
+    - send image https://platform.openai.com/docs/quickstart#analyze-images-and-files
+    - get classification
+    - later stage: show loading
+    + later stage: move API to own proxy to hide key (requires auth)
 - [ ] Parse result + classify (edible / poisonous)
+- [ ] Add OpenAI API mock (save money during dev)
 - [ ] Display result screen (simple, not pretty)
 - [ ] Save result to history
   - Decide where to store: SQLite / MMKV / File system
@@ -57,7 +73,7 @@ Reward / Reflection: Understood diff between React Navigation and Expo Router
 - [ ] Add placeholder image to home screen  
 - [ ] Add simple styling to buttons and screens  
 - [ ] Add loading animation while sending to model  
-- [ ] Show “Try Again” button on result screen  
+- [ ] Show "Try Again" button on result screen  
 - [ ] Use NativeWind consistently (decide utility classes)  
 
 ## 5. Mushroom Dataset (Future Feature)
@@ -73,14 +89,14 @@ Reward / Reflection: Understood diff between React Navigation and Expo Router
 - [ ] Create small online API with same dataset  
 - [ ] Provide `/search` and `/mushroom/:id` endpoints  
 - [ ] Deploy to low-cost hosting (Railway / Vercel)  
-- [ ] Build matching simple website  
+- [ ] Build matching simple website
+- [ ] Move OpenAI API with a key here
 
 ## 7. Stretch Ideas (Not Required for MVP)
-- [ ] On-device offline classification  
-- [ ] Detect mushroom species (not just edible/poisonous)  
-- [ ] Add geolocation to history entries  
-- [ ] Add share/export result  
-- [ ] Add “report dangerous mushroom” category  
+- [ ] On-device offline classification
+- [ ] Detect mushroom species (not just edible/poisonous)
+- [ ] Add geolocation to history entries (whole user-base map)
+- [ ] Add share/export result
 
 ## 8. Personal Workflow / Productivity
 - [ ] Keep 1–2 small tasks ready for low-energy days  
@@ -90,3 +106,10 @@ Reward / Reflection: Understood diff between React Navigation and Expo Router
 
 ## 9. Learning & Docs
 - [ ] Study Expo Router docs https://docs.expo.dev/router/basics/notation/
+
+## 10. Marketing
+- [ ] Study each screen of top 3 competitors
+- [ ] Create beautiful UI (hire designer?)
+- [ ] Marketing: reddit, quora, x, tt, yt, pinterest, instagram
+- [ ] Define positioning sentence
+  "A simple AI-powered mushroom identifier that tells you if your find is edible or dangerous."
