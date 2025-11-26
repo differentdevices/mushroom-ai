@@ -38,21 +38,26 @@ Next Step: Add zod, switch to structured responses (see brainderot openai.ts)
 Energy (1-10): 8
 Reward / Reflection: Understood Expo API routes, connected to OpenAI
 
+**Date: 2025-11-26**
+Task Done:
+- Add zod
+- Add expo file lib
+- Switch to structured responses
+- Send image to OpenAI and get basic classification
+Next Step: Get classification and show it on UI
+Energy (1-10): 7
+Reward / Reflection: Had a bit of struggle uploding images to OpenAI, but did it!
+
 # Backlog
 
 ## 1. Core MVP (Ship This First)
 - [x] Take picture  
-- [ ] Send image to model (OpenAI API)
-    + install openai
-    + connect and send text
-    + display response text
-    - add zod
-    - switch to structured responses (see brainderot openai.ts)
-    - send image https://platform.openai.com/docs/quickstart#analyze-images-and-files
-    - get classification
-    - later stage: show loading
-    + later stage: move API to own proxy to hide key (requires auth)
+- [x] Send image to model (OpenAI API)
 - [ ] Parse result + classify (edible / poisonous)
+  - refine classification { name: “…”, edible: “yes/no”, confidence: number }
+  <Text className="text-2xl font-bold">
+  {edible === "yes" ? "Edible 🍄" : "Poisonous ☠️"}
+  </Text>
 - [ ] Add OpenAI API mock (save money during dev)
 - [ ] Display result screen (simple, not pretty)
 - [ ] Save result to history
@@ -70,11 +75,11 @@ Reward / Reflection: Understood Expo API routes, connected to OpenAI
 - [ ] Add constants folder (paths, routes, keys, env vars)
 
 ## 4. UI / UX (Basic, Not Fancy)
-- [ ] Add placeholder image to home screen  
-- [ ] Add simple styling to buttons and screens  
-- [ ] Add loading animation while sending to model  
-- [ ] Show "Try Again" button on result screen  
-- [ ] Use NativeWind consistently (decide utility classes)  
+- [ ] Add placeholder image to home screen
+- [ ] Add simple styling to buttons and screens
+- [ ] Add loading animation while sending to model
+- [ ] Show "Try Again" button on result screen
+- [ ] Use NativeWind consistently (decide utility classes)
 
 ## 5. Mushroom Dataset (Future Feature)
 - [ ] Find publicly available mushroom dataset (JSON, CSV, API)  
@@ -106,6 +111,7 @@ Reward / Reflection: Understood Expo API routes, connected to OpenAI
 
 ## 9. Learning & Docs
 - [ ] Study Expo Router docs https://docs.expo.dev/router/basics/notation/
+- [ ] Study Expo API routes https://docs.expo.dev/router/web/api-routes/#deployment
 
 ## 10. Marketing
 - [ ] Study each screen of top 3 competitors
@@ -113,3 +119,6 @@ Reward / Reflection: Understood Expo API routes, connected to OpenAI
 - [ ] Marketing: reddit, quora, x, tt, yt, pinterest, instagram
 - [ ] Define positioning sentence
   "A simple AI-powered mushroom identifier that tells you if your find is edible or dangerous."
+
+## 11. UI / UX (Fancy)
+- [ ] Add animations, interactions, haptics https://youtu.be/jSWuepkuFrU
