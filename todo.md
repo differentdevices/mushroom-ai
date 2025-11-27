@@ -48,20 +48,28 @@ Next Step: Get classification and show it on UI
 Energy (1-10): 7
 Reward / Reflection: Had a bit of struggle uploding images to OpenAI, but did it!
 
+**Date: 2025-11-27**
+Task Done: Get classification and show it on UI
+Next Step: Add intermediate classification screen
+Energy (1-10): 6
+Reward / Reflection: Solid progress, readjusted MVP steps, progressing nicely
+
 # Backlog
 
 ## 1. Core MVP (Ship This First)
 - [x] Take picture  
 - [x] Send image to model (OpenAI API)
-- [ ] Parse result + classify (edible / poisonous)
-  - refine classification { name: “…”, edible: “yes/no”, confidence: number }
-  <Text className="text-2xl font-bold">
-  {edible === "yes" ? "Edible 🍄" : "Poisonous ☠️"}
-  </Text>
-- [ ] Add OpenAI API mock (save money during dev)
-- [ ] Display result screen (simple, not pretty)
+- [x] Parse result + classify (edible / poisonous)
+- [x] Display result screen (simple, not pretty)
+- [ ] Add intermediate classification screen
+    - same as result screen, but with API call and animation
+    - result screen will become reusable to display history
 - [ ] Save result to history
-  - Decide where to store: SQLite / MMKV / File system
+    - Decide where to store: SQLite / MMKV / File system
+- [ ] Resize sent image to save on costs
+- [ ] Add OpenAI API mock (save money during dev)
+- [ ] Show history on home screen (or placeholder if no history)
+
 
 ## 2. Developer Experience (DX) Improvements
 - [ ] Add error boundaries and loading states  

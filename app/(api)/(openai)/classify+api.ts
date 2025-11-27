@@ -1,14 +1,24 @@
+import { MushroomSchema } from '@/types/mushroom-schema';
 import { OpenAI } from 'openai';
 import { zodTextFormat } from 'openai/helpers/zod';
-import { z } from 'zod';
 
-const MushroomSchema = z.object({
-  name: z.string(),
-  type: z.enum([
-    'Edible',
-    'Poisonous',
-  ]),
-});
+const SYSTEM_PROMPT = `
+  You are a mushroom image classifier. Your job is to analyze the provided image
+  and return ONLY a JSON object that exactly follows the schema below.
+  
+  NEVER provide edibility advice, toxicity certainty, or consumption recommendations.
+  You may ONLY classify visual features, broad mushroom groups,
+  safe toxicity-risk categories, and best-guess names.
+
+  If unsure about anything, return 'unknown'.
+  If you cannot detect a mushroom, set:
+    is_mushroom = false
+    type = 'unknown'
+    name.common_name = 'unknown'
+    name.scientific_name = 'unknown'
+    toxicity.toxicity_risk = 'unknown'
+  
+  Return ONLY the JSON object. No commentary, no explanation, no text outside JSON.`;
 
 export async function POST(request: Request) {
   try {
@@ -28,6 +38,8 @@ export async function POST(request: Request) {
     // imageData is already in data URI format (data:image/...;base64,...)
     const response = await openai.responses.parse({
       model: 'gpt-4.1-mini',
+      instructions: SYSTEM_PROMPT,
+      safety_identifier: "mushroom_classifier",
       input: [
         {
           role: "user",
@@ -39,7 +51,7 @@ export async function POST(request: Request) {
             },
             {
               type: "input_text",
-              text: "You will be provided with an image of a mushroom. Identify the mushroom and classify it as either Edible or Poisonous. Respond with just the mushroom name and type.",
+              text: "Classify the mushroom in this image according to the schema.",
             },
           ],
         },

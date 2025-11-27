@@ -1,12 +1,13 @@
+import { MushroomSchema } from '@/types/mushroom-schema';
 import { File } from 'expo-file-system';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Button, Image, Pressable, Text, View } from 'react-native';
+import { z } from 'zod';
 
 export default function ResultScreen() {
   const { photoUri } = useLocalSearchParams();
-  const [ mushroomName, setMushroomName ] = useState<string | null>(null);
-  const [ mushroomType, setMushroomType ] = useState<string | null>(null);
+  const [ mushroom, setMushroom ] = useState<z.infer<typeof MushroomSchema> | null>(null);
   const router = useRouter();
 
   const callOpenAI = async () => {
@@ -36,11 +37,12 @@ export default function ResultScreen() {
         body: JSON.stringify({ imageData: dataUri }),
       });
 
-      const mushroom = await response.json();
-      console.log('Client side OpenAI Response:', mushroom);
+      const res = await response.json();
+      console.log('Client side OpenAI Response:', res);
 
-      setMushroomType(mushroom.type || 'Unknown');
-      setMushroomName(mushroom.name || 'Unknown');
+      // Validate the response against MushroomSchema
+      const validatedMushroom = MushroomSchema.parse(res);
+      setMushroom(validatedMushroom);
     } catch (error) {
       console.error('Error calling OpenAI API:', error);
     }
@@ -62,8 +64,7 @@ export default function ResultScreen() {
         <Text className="text-white text-lg">Call OpenAI</Text>
       </Pressable>
 
-      <Text className="text-black text-lg">Name: {mushroomName}</Text>
-      <Text className="text-black text-lg">Type: {mushroomType}</Text>
+      <Text className="text-black text-lg">{JSON.stringify(mushroom)}</Text>
 
       <Button title="Back" onPress={() => router.push('/')} />
     </View>
