@@ -54,6 +54,15 @@ Next Step: Add intermediate classification screen
 Energy (1-10): 6
 Reward / Reflection: Solid progress, readjusted MVP steps, progressing nicely
 
+**Date: 2025-11-29**
+Task Done:
+- Study Expo Router docs
+- Study Expo API routes
+- Add intermediate classification screen
+Next Step: Save result to history (image and classification json)
+Energy (1-10): 7
+Reward / Reflection: Took a break yesterday, today did 2 sessions (one off PC reading)
+
 # Backlog
 
 ## 1. Core MVP (Ship This First)
@@ -61,15 +70,12 @@ Reward / Reflection: Solid progress, readjusted MVP steps, progressing nicely
 - [x] Send image to model (OpenAI API)
 - [x] Parse result + classify (edible / poisonous)
 - [x] Display result screen (simple, not pretty)
-- [ ] Add intermediate classification screen
-    - same as result screen, but with API call and animation
-    - result screen will become reusable to display history
+- [x] Add intermediate classification screen
 - [ ] Save result to history
     - Decide where to store: SQLite / MMKV / File system
 - [ ] Resize sent image to save on costs
 - [ ] Add OpenAI API mock (save money during dev)
 - [ ] Show history on home screen (or placeholder if no history)
-
 
 ## 2. Developer Experience (DX) Improvements
 - [ ] Add error boundaries and loading states  
@@ -118,8 +124,8 @@ Reward / Reflection: Solid progress, readjusted MVP steps, progressing nicely
 - [ ] Reflect daily (Wins, Challenges, Focus, Lessons, Tomorrow)
 
 ## 9. Learning & Docs
-- [ ] Study Expo Router docs https://docs.expo.dev/router/basics/notation/
-- [ ] Study Expo API routes https://docs.expo.dev/router/web/api-routes/#deployment
+- [x] Study Expo Router docs https://docs.expo.dev/router/basics/notation/
+- [x] Study Expo API routes https://docs.expo.dev/router/web/api-routes/#deployment
 
 ## 10. Marketing
 - [ ] Study each screen of top 3 competitors

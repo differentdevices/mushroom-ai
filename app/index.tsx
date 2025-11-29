@@ -14,7 +14,7 @@ export default function HomeScreen() {
     if (!result.canceled) {
       console.log("Picked:", result.assets[0].uri);
       router.push({
-        pathname: '/result',
+        pathname: '/classify',
         params: {
           photoUri: encodeURIComponent(result.assets[0].uri),
         }

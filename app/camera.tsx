@@ -32,7 +32,7 @@ export default function CameraScreen() {
 
     // use the object form so the value matches the router's typed overloads
     router.push({
-      pathname: '/result',
+      pathname: '/classify',
       params: {
         photoUri: encodeURIComponent(photo.uri),
       }
