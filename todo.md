@@ -63,6 +63,16 @@ Next Step: Save result to history (image and classification json)
 Energy (1-10): 7
 Reward / Reflection: Took a break yesterday, today did 2 sessions (one off PC reading)
 
+**Date: 2025-11-30**
+Task Done:
+- Skipped OpenAI API mock as API is cheap
+- Decide which storage to use (MMKV vs AsynStorage)
+- Define data types
+- Save result to history
+Next Step: Skip classification if image is already in history
+Energy (1-10): 9
+Reward / Reflection: Went to gym, feel refreshed
+
 # Backlog
 
 ## 1. Core MVP (Ship This First)
@@ -71,11 +81,12 @@ Reward / Reflection: Took a break yesterday, today did 2 sessions (one off PC re
 - [x] Parse result + classify (edible / poisonous)
 - [x] Display result screen (simple, not pretty)
 - [x] Add intermediate classification screen
-- [ ] Save result to history
-    - Decide where to store: SQLite / MMKV / File system
+- [-] Add OpenAI API mock (ignored: API is cheap enough)
+- [x] Save result to history
+- [ ] Show limited history (last 10 items is fine or placeholder)
+- [ ] Delete history item
+- [ ] Skip classification if image is already in history
 - [ ] Resize sent image to save on costs
-- [ ] Add OpenAI API mock (save money during dev)
-- [ ] Show history on home screen (or placeholder if no history)
 
 ## 2. Developer Experience (DX) Improvements
 - [ ] Add error boundaries and loading states  

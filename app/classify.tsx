@@ -1,3 +1,4 @@
+import { addHistoryItem } from '@/storage/history';
 import { MushroomSchema } from '@/types/mushroom-schema';
 import { File } from 'expo-file-system';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -44,14 +45,12 @@ export default function ClassifyScreen() {
         // Validate the response against MushroomSchema
         const validatedMushroom = MushroomSchema.parse(res);
         if (!isCancelled) {
-          // TODO: save image and data to history here
-          // TODO: navigate to result screen with data
+          const historyItem = await addHistoryItem(photoUri as string, validatedMushroom);
           router.replace({
             pathname: '/result',
             params: {
-              photoUri,
-              mushroom: JSON.stringify(validatedMushroom),
-            }
+              id: historyItem.id,
+            },
           });
         }
       } catch (error) {

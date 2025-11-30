@@ -60,3 +60,12 @@ export const MushroomSchema = z.object({
     "Confidence of overall classicication from 0.0 to 1.0."
   ),
 });
+
+export type MushroomType = z.infer<typeof MushroomSchema>;
+
+export type HistoryItem = {
+  id: string;                 // uuid
+  createdAt: number;          // timestamp
+  photoUri: string;
+  mushroom: MushroomType;
+};
