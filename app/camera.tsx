@@ -1,3 +1,4 @@
+import { persistImage } from '@/utils/image';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useRouter } from 'expo-router';
 import { useRef } from 'react';
@@ -29,12 +30,13 @@ export default function CameraScreen() {
     });
 
     console.log("Photo:", photo);
+    const copiedImageUri = await persistImage(photo.uri);
+    // TODO resize image
 
-    // use the object form so the value matches the router's typed overloads
     router.push({
       pathname: '/classify',
       params: {
-        photoUri: encodeURIComponent(photo.uri),
+        photoUri: encodeURIComponent(copiedImageUri as string),
       }
     });
   };

@@ -73,6 +73,14 @@ Next Step: Skip classification if image is already in history
 Energy (1-10): 9
 Reward / Reflection: Went to gym, feel refreshed
 
+**Date: 2025-12-01**
+Task Done: 
+- Skip classification if image is already in history (ignore: too hard, need hashing)
+- Persist image as picker saves to cache only
+Next Step: Show limited history (last 10 items is fine or placeholder)
+Energy (1-10): 7
+Reward / Reflection: Felt distracted, did small 'filler' task
+
 # Backlog
 
 ## 1. Core MVP (Ship This First)
@@ -85,7 +93,7 @@ Reward / Reflection: Went to gym, feel refreshed
 - [x] Save result to history
 - [ ] Show limited history (last 10 items is fine or placeholder)
 - [ ] Delete history item
-- [ ] Skip classification if image is already in history
+- [-] Skip classification if image is already in history
 - [ ] Resize sent image to save on costs
 
 ## 2. Developer Experience (DX) Improvements

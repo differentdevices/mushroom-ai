@@ -1,3 +1,4 @@
+import { persistImage } from '@/utils/image';
 import * as ImagePicker from 'expo-image-picker';
 import { useRouter } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
@@ -9,14 +10,18 @@ export default function HomeScreen() {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       quality: 1,
+      selectionLimit: 1,
     });
 
     if (!result.canceled) {
       console.log("Picked:", result.assets[0].uri);
+
+      const copiedImageUri = await persistImage(result.assets[0].uri);
+      // TODO resize image
       router.push({
         pathname: '/classify',
         params: {
-          photoUri: encodeURIComponent(result.assets[0].uri),
+          photoUri: encodeURIComponent(copiedImageUri as string),
         }
       });
     }
