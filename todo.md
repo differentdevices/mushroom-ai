@@ -81,6 +81,12 @@ Next Step: Show limited history (last 10 items is fine or placeholder)
 Energy (1-10): 7
 Reward / Reflection: Felt distracted, did small 'filler' task
 
+**Date: 2025-12-02**
+Task Done: Show history of classifications
+Next Step: 
+Energy (1-10): 6
+Reward / Reflection: Quite tired, but still did one item, proud of myself
+
 # Backlog
 
 ## 1. Core MVP (Ship This First)
@@ -91,7 +97,7 @@ Reward / Reflection: Felt distracted, did small 'filler' task
 - [x] Add intermediate classification screen
 - [-] Add OpenAI API mock (ignored: API is cheap enough)
 - [x] Save result to history
-- [ ] Show limited history (last 10 items is fine or placeholder)
+- [ ] Show history of classifications
 - [ ] Delete history item
 - [-] Skip classification if image is already in history
 - [ ] Resize sent image to save on costs
