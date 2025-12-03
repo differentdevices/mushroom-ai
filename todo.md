@@ -83,9 +83,17 @@ Reward / Reflection: Felt distracted, did small 'filler' task
 
 **Date: 2025-12-02**
 Task Done: Show history of classifications
-Next Step: 
+Next Step: Delete history item
 Energy (1-10): 6
 Reward / Reflection: Quite tired, but still did one item, proud of myself
+
+**Date: 2025-12-03**
+Task Done:
+- Delete history item
+- Resize sent image to save on costs
+Next Step: 
+Energy (1-10): 7
+Reflection: Bit scared, did all MVP tasks. What is next?
 
 # Backlog
 
@@ -96,11 +104,11 @@ Reward / Reflection: Quite tired, but still did one item, proud of myself
 - [x] Display result screen (simple, not pretty)
 - [x] Add intermediate classification screen
 - [-] Add OpenAI API mock (ignored: API is cheap enough)
-- [x] Save result to history
-- [ ] Show history of classifications
-- [ ] Delete history item
 - [-] Skip classification if image is already in history
-- [ ] Resize sent image to save on costs
+- [x] Save result to history
+- [x] Show history of classifications
+- [x] Delete history item
+- [x] Resize sent image to save on costs
 
 ## 2. Developer Experience (DX) Improvements
 - [ ] Add error boundaries and loading states  

@@ -1,6 +1,6 @@
 import { addHistoryItem } from '@/storage/history';
 import { MushroomSchema } from '@/types/mushroom-schema';
-import { File } from 'expo-file-system';
+import * as ImageManipulator from 'expo-image-manipulator';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect } from 'react';
 import { ActivityIndicator, Image, Text, View } from 'react-native';
@@ -14,29 +14,23 @@ export default function ClassifyScreen() {
 
     const classify = async () => {
       try {
-        const file = new File(photoUri as string);
-        const base64Image = await file.base64();
+        // Resize and compress image before sending to LLM
+        const manipulatedImage = await ImageManipulator.manipulateAsync(
+          photoUri as string,
+          [{ resize: { width: 1024 } }], // Max width 1024, preserve aspect ratio
+          { format: ImageManipulator.SaveFormat.JPEG, compress: 0.7, base64: true } // Compress to 70% quality
+        );
 
-        // Get file extension and determine MIME type
-        const extension = file.extension.toLowerCase();
-        const mimeTypes: { [key: string]: string } = {
-          '.jpg': 'image/jpeg',
-          '.jpeg': 'image/jpeg',
-          '.png': 'image/png',
-          '.gif': 'image/gif',
-          '.webp': 'image/webp',
-        };
-        const mimeType = mimeTypes[extension] || 'image/jpeg';
-
-        // Create data URI with proper prefix
-        const dataUri = `data:${mimeType};base64,${base64Image}`;
+        // Prepare base64 URI format for LLM
+        const mimeType = 'image/jpeg';
+        const base64forLLM = `data:${mimeType};base64,${manipulatedImage.base64}`;
 
         const response = await fetch('/(api)/(openai)/classify', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ imageData: dataUri }),
+          body: JSON.stringify({ imageData: base64forLLM }),
         });
 
         const res = await response.json();
