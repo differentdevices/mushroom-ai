@@ -1,8 +1,7 @@
 import HistoryItemCard from '@/components/ui/history-item-card';
 import { getHistory } from '@/storage/history';
 import { HistoryItem } from '@/types/mushroom-schema';
-import { persistImage } from '@/utils/image';
-import * as ImagePicker from 'expo-image-picker';
+import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
@@ -21,29 +20,10 @@ export default function HomeScreen() {
     }, [])
   );
 
-  const pickImage = async () => {
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 1,
-      selectionLimit: 1,
-    });
-
-    if (!result.canceled) {
-      console.log("Picked:", result.assets[0].uri);
-
-      const copiedImageUri = await persistImage(result.assets[0].uri);
-      // TODO resize image
-      router.push({
-        pathname: '/classify',
-        params: {
-          photoUri: encodeURIComponent(copiedImageUri as string),
-        }
-      });
-    }
-  };
-
   return (
     <View className="flex-1 items-center justify-center">
+
+      {/* History */}
       <ScrollView className="w-full p-4">
         <Text className="text-xl font-bold mb-4 mt-4">Recently Added</Text>
         {history.length === 0 ? (
@@ -53,19 +33,13 @@ export default function HomeScreen() {
         )}
       </ScrollView>
 
-      <View className="flex-row gap-2 pb-4">
+      {/* Open Camera Button */}
+      <View className="flex-row pb-8 pr-8 justify-end w-full">
         <Pressable
-          className="bg-blue-600 p-4 rounded-xl flex-1"
+          className="bg-blue-600 p-4 rounded-full"
           onPress={() => router.push('/camera')}
         >
-          <Text className="text-white text-lg text-center">Open Camera</Text>
-        </Pressable>
-
-        <Pressable
-          className="bg-blue-600 p-4 rounded-xl flex-1"
-          onPress={pickImage}
-        >
-          <Text className="text-white text-lg text-center">Pick from gallery</Text>
+          <Ionicons name="camera-outline" size={40} color="white" />
         </Pressable>
       </View>
     </View>

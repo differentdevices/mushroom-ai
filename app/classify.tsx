@@ -15,6 +15,7 @@ export default function ClassifyScreen() {
     const classify = async () => {
       try {
         // Resize and compress image before sending to LLM
+        // TODO: refactor deprecated options
         const manipulatedImage = await ImageManipulator.manipulateAsync(
           photoUri as string,
           [{ resize: { width: 1024 } }], // Max width 1024, preserve aspect ratio
@@ -34,7 +35,7 @@ export default function ClassifyScreen() {
         });
 
         const res = await response.json();
-        console.log('Client side OpenAI Response:', res);
+        console.log('[INFO] Client side OpenAI Response:', res);
 
         // Validate the response against MushroomSchema
         const validatedMushroom = MushroomSchema.parse(res);
@@ -48,7 +49,7 @@ export default function ClassifyScreen() {
           });
         }
       } catch (error) {
-        console.error('Classification failed:', error);
+        console.error('[ERROR] Classification failed:', error);
         if (!isCancelled) {
           router.replace({
             pathname: '/result',
@@ -63,11 +64,12 @@ export default function ClassifyScreen() {
     classify();
 
     return () => {
-      // prevent race condition on fast navigation
+      // Prevent race condition on fast navigation
       isCancelled = true;
     };
   }, [photoUri]);
 
+  // TODO: need better classify UI
   return (
     <View className="flex-1 bg-white items-center justify-center">
       <Image
@@ -77,7 +79,7 @@ export default function ClassifyScreen() {
       />
 
       <ActivityIndicator size="large" />
-      <Text className="mt-4 text-gray-600">Analyzing your mushroom...</Text>
+      <Text className="mt-8 text-xl text-gray-800">Analyzing mushroom...</Text>
     </View>
   );;
 }

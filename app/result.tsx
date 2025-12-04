@@ -1,9 +1,10 @@
 import { deleteHistoryItem, getHistoryItemById } from '@/storage/history';
 import { HistoryItem } from '@/types/mushroom-schema';
+import { Ionicons } from '@expo/vector-icons';
 import { File } from 'expo-file-system';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Button, Image, Text, View } from 'react-native';
+import { ActivityIndicator, Button, Image, Pressable, Text, View } from 'react-native';
 
 export default function ResultScreen() {
   const { id } = useLocalSearchParams();
@@ -45,6 +46,7 @@ export default function ResultScreen() {
   if (loading) {
     return (
       <View className="flex-1 items-center justify-center p-4">
+        <ActivityIndicator size="large" />
         <Text>Loading...</Text>
       </View>
     );
@@ -70,8 +72,15 @@ export default function ResultScreen() {
 
       <Text className="text-black text-lg">{JSON.stringify(historyItem.mushroom)}</Text>
 
-      <Button title="Delete" onPress={deleteHistoryItemHandler} />
-      <Button title="Back" onPress={() => router.replace('/')} />
+      {/* Delete button */}
+      <Pressable className="p-3 active:opacity-60" onPress={deleteHistoryItemHandler}>
+        <Ionicons name="trash-outline" size={36} color="black" />
+      </Pressable>
+
+      {/* Back button */}
+      <Pressable className="p-3 active:opacity-60" onPress={() => router.replace('/')}>
+        <Ionicons name="arrow-back-outline" size={36} color="black" />
+      </Pressable>
     </View>
   );
 }

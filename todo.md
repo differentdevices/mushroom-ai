@@ -91,44 +91,43 @@ Reward / Reflection: Quite tired, but still did one item, proud of myself
 Task Done:
 - Delete history item
 - Resize sent image to save on costs
-Next Step: 
+Next Step: Add error handling and loading states
 Energy (1-10): 7
 Reflection: Bit scared, did all MVP tasks. What is next?
 
+**Date: 2025-12-04**
+Task Done:
+- [x] Add error handling and loading states
+- [x] Add logging for API failures
+- [x] Add environment variable handling for Expo
+- [x] Add simple internal API wrapper for OpenAI requests
+- [x] Finalize screen structure: Home → Camera → Result → History
+- [x] Standardize file/folder structure in Expo Router
+- [x] Add constants folder (paths, routes, keys, env vars)
+Next Step: Find and download apps from 2–3 competitors
+Energy (1-10): 8
+Reflection: Cleaned up, polished code a bit; not sure what's next
+
 # Backlog
 
-## 1. Core MVP (Ship This First)
-- [x] Take picture  
-- [x] Send image to model (OpenAI API)
-- [x] Parse result + classify (edible / poisonous)
-- [x] Display result screen (simple, not pretty)
-- [x] Add intermediate classification screen
-- [-] Add OpenAI API mock (ignored: API is cheap enough)
-- [-] Skip classification if image is already in history
-- [x] Save result to history
-- [x] Show history of classifications
-- [x] Delete history item
-- [x] Resize sent image to save on costs
+## 1. [x] Core MVP (Ship This First)
+## 2. [x] Learning & Docs
+## 3. [x] Developer Experience (DX) Improvements
+## 4. [x] Navigation & Architecture
 
-## 2. Developer Experience (DX) Improvements
-- [ ] Add error boundaries and loading states  
-- [ ] Add logging for API failures  
-- [ ] Add environment variable handling for Expo  
-- [ ] Add simple internal API wrapper for OpenAI requests  
+## 5. Study Competitors (Flow and Design)
+- [ ] Find and download apps from 2–3 competitors
+- [ ] Take screenshots of their flow (screens, navigation)
+- [ ] What actions users can take (save, share, retry...)
 
-## 3. Navigation & Architecture
-- [ ] Finalize screen structure: Home → Camera → Result → History
-- [ ] Standardize file/folder structure in Expo Router
-- [ ] Add constants folder (paths, routes, keys, env vars)
-
-## 4. UI / UX (Basic, Not Fancy)
+## 6. UI / UX
+- [x] Add simple styling to buttons and screens
 - [ ] Add placeholder image to home screen
-- [ ] Add simple styling to buttons and screens
 - [ ] Add loading animation while sending to model
 - [ ] Show "Try Again" button on result screen
-- [ ] Use NativeWind consistently (decide utility classes)
+- [ ] Add animations, interactions, haptics https://youtu.be/jSWuepkuFrU
 
-## 5. Mushroom Dataset (Future Feature)
+## 7. Mushroom Dataset (Future Feature)
 - [ ] Find publicly available mushroom dataset (JSON, CSV, API)  
 - [ ] Build simple local JSON DB  
 - [ ] Implement basic mushroom search (name, color, type)  
@@ -136,7 +135,7 @@ Reflection: Bit scared, did all MVP tasks. What is next?
   - Option A: Local assets
   - Option B: Remote URLs
 
-## 6. Optional Online API
+## 8. Optional Online API
 (Do this only after MVP is shipped.)
 - [ ] Create small online API with same dataset  
 - [ ] Provide `/search` and `/mushroom/:id` endpoints  
@@ -144,28 +143,17 @@ Reflection: Bit scared, did all MVP tasks. What is next?
 - [ ] Build matching simple website
 - [ ] Move OpenAI API with a key here
 
-## 7. Stretch Ideas (Not Required for MVP)
-- [ ] On-device offline classification
-- [ ] Detect mushroom species (not just edible/poisonous)
+## 9. Stretch Ideas (Not Required for MVP)
 - [ ] Add geolocation to history entries (whole user-base map)
-- [ ] Add share/export result
-
-## 8. Personal Workflow / Productivity
-- [ ] Keep 1–2 small tasks ready for low-energy days  
-- [ ] Each day choose ONE non-negotiable task  
-- [ ] Track actual time spent per task  
-- [ ] Reflect daily (Wins, Challenges, Focus, Lessons, Tomorrow)
-
-## 9. Learning & Docs
-- [x] Study Expo Router docs https://docs.expo.dev/router/basics/notation/
-- [x] Study Expo API routes https://docs.expo.dev/router/web/api-routes/#deployment
+- [ ] Add share result feature
 
 ## 10. Marketing
-- [ ] Study each screen of top 3 competitors
-- [ ] Create beautiful UI (hire designer?)
-- [ ] Marketing: reddit, quora, x, tt, yt, pinterest, instagram
+- [ ] How competitors are promoting on each platform: reddit, fb, li, tt, yt, insta, quora, x, google, etc.?
+- [ ] What terms and language competitors are using?
+- [ ] Do marketing myself: reddit, quora, x, tt, yt, pinterest, instagram
 - [ ] Define positioning sentence
   "A simple AI-powered mushroom identifier that tells you if your find is edible or dangerous."
 
-## 11. UI / UX (Fancy)
-- [ ] Add animations, interactions, haptics https://youtu.be/jSWuepkuFrU
+## 11. Deploy to Prod
+- [ ] Deploy API to Expo
+- [ ] Publish app to AppStore

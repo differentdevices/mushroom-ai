@@ -22,10 +22,10 @@ export const persistImage = async (originalUri: string) => {
     const copiedFile = new File(Paths.document, newFileName);
     originalFile.copy(copiedFile)
     
-    console.log(`Successfully copied and renamed to: ${copiedFile.uri}`);
+    console.log(`[INFO] Successfully copied and renamed to: ${copiedFile.uri}`);
     return copiedFile.uri;
   } catch (error) {
-    console.error('Failed to copy and rename file:', error);
+    console.error('[ERROR] Failed to copy and rename file:', error);
     return null;
   }
 };

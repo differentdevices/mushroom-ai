@@ -25,15 +25,19 @@ export async function POST(request: Request) {
     const { imageData } = await request.json();
 
     if (!imageData) {
+      console.error('[ERROR] imageData is missing in request body');
       return new Response(
         JSON.stringify({ error: 'imageData is required' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
+        {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        }
       );
     }
-    
+
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-    console.log('Sending request to OpenAI API with image', imageData.length);
-    console.log('imageData preview:', imageData.slice(0, 100));
+    console.log('[INFO] Sending request to OpenAI API with size(base64):', imageData.length);
+    console.log('[INFO] imageData preview:', imageData.slice(0, 100));
 
     // imageData is already in data URI format (data:image/...;base64,...)
     const response = await openai.responses.parse({
@@ -62,14 +66,18 @@ export async function POST(request: Request) {
     });
 
     const content = response.output_parsed;
-    console.log('Server side OpenAI Response:', content);
 
-    return new Response(JSON.stringify(content), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    console.log('[INFO] Server side OpenAI Response:', content);
+
+    return new Response(
+      JSON.stringify(content),
+      {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
   } catch (error) {
-    console.error('Error in classify endpoint:', error);
+    console.error('[ERROR] Error in /classify endpoint:', error);
     return new Response(
       JSON.stringify({
         error: error instanceof Error ? error.message : 'Unknown error',
