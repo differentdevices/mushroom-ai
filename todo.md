@@ -108,6 +108,20 @@ Next Step: Find and download apps from 2–3 competitors
 Energy (1-10): 8
 Reflection: Cleaned up, polished code a bit; not sure what's next
 
+**Date: 2025-12-07**
+Task Done: Create list of all competitors (5-10 total)
+Next Step: Setup dev environment on a new PC
+Energy (1-10): 6
+Reflection: Got lazy for 2 days, on a third day was configuring new PC
+
+**Date: 2025-12-08**
+Task Done: 
+- Setup dev environment on a new PC
+- Improve UI of Grant Camera Permissions screen
+Next Step: Find and download apps from 2–3 competitors
+Energy (1-10): 7
+Reflection: Still feeling a bit lazy, played a lot of BF6
+
 # Backlog
 
 ## 1. [x] Core MVP (Ship This First)

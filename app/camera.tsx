@@ -13,14 +13,36 @@ export default function CameraScreen() {
 
   if (!permission?.granted) {
     return (
-      // TODO: need to style this better
-      <View className="flex-1 items-center justify-center">
+      <View className="flex-1 items-center justify-center bg-white px-6">
+        {/* Icon Container */}
+        <View className="mb-8 p-6 bg-blue-50 rounded-full">
+          <Ionicons name="camera" size={56} color="#2563eb" />
+        </View>
+
+        {/* Title */}
+        <Text className="text-2xl font-bold text-gray-900 text-center mb-3">
+          Camera Access Required
+        </Text>
+
+        {/* Description */}
+        <Text className="text-gray-600 text-center mb-8 leading-6">
+          We need access to your camera to identify and classify mushrooms. Your photos are processed securely.
+        </Text>
+
+        {/* Button */}
         <Pressable
-          className="bg-blue-600 p-4 rounded-xl flex-1"
+          className="w-full bg-blue-600 active:bg-blue-700 py-4 rounded-xl mb-4"
           onPress={requestPermission}
         >
-          <Ionicons name="camera" size={32} />
-          <Text className="text-white text-lg text-center">Grant Camera Permission</Text>
+          <Text className="text-white text-lg font-semibold text-center">Grant Camera Permissions</Text>
+        </Pressable>
+
+        {/* Cancel Button */}
+        <Pressable
+          className="w-full py-3 border border-gray-300 rounded-xl"
+          onPress={() => router.push('/')}
+        >
+          <Text className="text-gray-700 text-center font-medium">Cancel</Text>
         </Pressable>
       </View>
     );
