@@ -122,6 +122,18 @@ Next Step: Find and download apps from 2–3 competitors
 Energy (1-10): 7
 Reflection: Still feeling a bit lazy, played a lot of BF6
 
+**Date: 2025-12-09**
+Task Done: Find and download apps from 2–3 competitors
+Next Step: Take screenshots of competitor flow (screens, navigation)
+Energy (1-10): 7
+Reflection: Got shoked when searched 'mushroom' on appstore - 100s of apps
+
+**Date: 2025-12-11**
+Task Done: Take screenshots of competitor flow (screens, navigation)
+Next Step: Put all screenshots into figma to see flow and complexity
+Energy (1-10): 8
+Reflection: I thought it will be easier, but took 1 hour to complete
+
 # Backlog
 
 ## 1. [x] Core MVP (Ship This First)
@@ -130,8 +142,12 @@ Reflection: Still feeling a bit lazy, played a lot of BF6
 ## 4. [x] Navigation & Architecture
 
 ## 5. Study Competitors (Flow and Design)
-- [ ] Find and download apps from 2–3 competitors
-- [ ] Take screenshots of their flow (screens, navigation)
+- [x] Find and download apps from 2–3 competitors
+- [x] Take screenshots of competitor flow (screens, navigation)
+- [ ] Put all screenshots into figma to see flow and complexity
+    - List what annoys you about the UX
+    - (subscriptions!)
+    - "Offline-First for Hikers” - flat fee, on-device model
 - [ ] What actions users can take (save, share, retry...)
 
 ## 6. UI / UX
@@ -171,3 +187,9 @@ Reflection: Still feeling a bit lazy, played a lot of BF6
 ## 11. Deploy to Prod
 - [ ] Deploy API to Expo
 - [ ] Publish app to AppStore
+
+
+add auth
+a) apple
+b) google
+c) email
